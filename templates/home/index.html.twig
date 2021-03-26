@@ -10,49 +10,53 @@
 
         </div>
         <div class="col-12">
-            <h2>Tous solidaires</h1>
-                <blockquote class="p-2">
-                    <p class="paraph"><span>C</span>'est dans ces moments difficiles, ou nous sommes en guerre contre
-                        cet ennemi invisible que nous pouvons relever la tête et lutter tous ensemble contre cet ennemie
-                        commun.
-                        <i class="float-right mt-3">Macron 1 mai 2019</i>
-                    </p>
-                </blockquote>
+            <h2>Tous solidaires</h2>
+            <blockquote class="p-2">
+                <p class="paraph"><span>C</span>'est dans ces moments difficiles, ou nous sommes en guerre contre
+                    cet ennemi invisible que nous pouvons relever la tête et lutter tous ensemble contre cet ennemie
+                    commun.
+                    <i class="float-right mt-3">Macron 1 mai 2019</i>
+                </p>
+            </blockquote>
         </div>
-        <div class="row">
-            {% for actu in actus |slice(0, 4)%}
-            <div class="col-4">
-                <div class="card  px-0">
-                    <img class="card-img-top" alt="{{actu.alt}}" src="{{actu.UrlImage}}" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">{{actu.titre|raw}}</h5>
-                        <p class="card-text">{{actu.texte|raw}}</p>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h2>dernières actualités</h2>
+        </div>
+        {% for actu in actus |slice(0, 3)%}
+        <div class="col-4">
+            <div class="card  px-0">
+                <img class="card-img-top" alt="{{actu.alt}}" src="{{actu.UrlImage}}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">{{actu.titre|raw}}</h5>
+                    <p class="card-text">{{actu.texte|raw}}</p>
 
-                    </div>
-                    <div class="card-footer">
-                        {{actu.CreatedAt|date("F jS à H:i")}}
-                    </div>
+                </div>
+                <div class="card-footer">
+                    {{actu.CreatedAt|date("F jS à H:i")}}
                 </div>
             </div>
-            {% endfor %}
         </div>
-        <div class="row">
-            <div class="col-12 col-md-6 ">
-                <img src="https://picsum.photos/id/633/600/400" class="img-fluid" alt="vu de central park">
-                <div class="bandeau">Espérance de vie</div>
-            </div>
-            <div class="col-12">
-                <p>
-                    L’âge de la personne est le facteur de risque de développer une forme grave de Covid-19 le plus
-                    important,
-                    la Haute autorité de santé a donc recommandé de prioriser les populations cibles vaccinales en
-                    fonction
-                    de
-                    différentes classes d’âge et selon les facteurs d’exposition au virus (ex : vie en collectivité,
-                    professionnels du secteur de la santé…).</p>
-            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 ">
+            <img src="https://picsum.photos/id/633/600/400" class="img-fluid" alt="vu de central park">
+            <div class="bandeau">Espérance de vie</div>
         </div>
-
+        <div class="col-12">
+            <p>
+                L’âge de la personne est le facteur de risque de développer une forme grave de Covid-19 le plus
+                important,
+                la Haute autorité de santé a donc recommandé de prioriser les populations cibles vaccinales en
+                fonction
+                de
+                différentes classes d’âge et selon les facteurs d’exposition au virus (ex : vie en collectivité,
+                professionnels du secteur de la santé…).</p>
+        </div>
     </div>
 
-    {% endblock %}
+</div>
+
+{% endblock %}

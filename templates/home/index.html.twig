@@ -24,8 +24,8 @@
             <div class="card col-4 px-0">
                 <img class="card-img-top" alt="{{actu.alt}}" src="{{actu.UrlImage}}" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">{{actu.titre}}</h5>
-                    <p class="card-text">{{actu.texte}}</p>
+                    <h5 class="card-title">{{actu.titre|raw}}</h5>
+                    <p class="card-text">{{actu.texte|raw}}</p>
                 </div>
             </div>
             {% endfor %}

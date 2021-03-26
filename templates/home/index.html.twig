@@ -21,11 +21,17 @@
         </div>
         <div class="row">
             {% for actu in actus |slice(0, 4)%}
-            <div class="card col-4 px-0">
-                <img class="card-img-top" alt="{{actu.alt}}" src="{{actu.UrlImage}}" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">{{actu.titre|raw}}</h5>
-                    <p class="card-text">{{actu.texte|raw}}</p>
+            <div class="col-4">
+                <div class="card  px-0">
+                    <img class="card-img-top" alt="{{actu.alt}}" src="{{actu.UrlImage}}" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{actu.titre|raw}}</h5>
+                        <p class="card-text">{{actu.texte|raw}}</p>
+
+                    </div>
+                    <div class="card-footer">
+                        {{actu.CreatedAt|date("F jS à H:i")}}
+                    </div>
                 </div>
             </div>
             {% endfor %}

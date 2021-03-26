@@ -2,14 +2,20 @@
 
 namespace App\Entity;
 
-use App\Repository\ActualiteRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ActualiteRepository;
+use App\Entity\Traits\Timestampable;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ActualiteRepository::class)
+ * @ORM\HasLifecycleCallbacks
  */
 class Actualite
 {
+    use Timestampable;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -36,6 +42,8 @@ class Actualite
      * @ORM\Column(type="string", length=255)
      */
     private $Alt;
+
+
 
     public function getId(): ?int
     {

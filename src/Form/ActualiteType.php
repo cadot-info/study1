@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use DateTime;
 
 class ActualiteType extends AbstractType
 {
@@ -15,8 +16,8 @@ class ActualiteType extends AbstractType
         $builder
             ->add('Titre')
             ->add('UrlImage')
-            ->add('Texte', CKEditorType::class)
-            ->add('Alt');
+            ->add('Alt')
+            ->add('Texte', CKEditorType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)

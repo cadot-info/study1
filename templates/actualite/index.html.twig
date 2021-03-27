@@ -1,41 +1,43 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/index.html.twig' %}
 
 {% block title %}Actualite index{% endblock %}
 
 {% block body %}
-    <h1>Actualite index</h1>
+<h1>Actualite index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>UrlImage</th>
-                <th>Texte</th>
-                <th>Alt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>UrlImage</th>
+            <th>Accroche</th>
+            <th>Texte</th>
+            <th>Alt</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
         {% for actualite in actualites %}
-            <tr>
-                <td>{{ actualite.id }}</td>
-                <td>{{ actualite.Titre }}</td>
-                <td>{{ actualite.UrlImage }}</td>
-                <td>{{ actualite.Texte }}</td>
-                <td>{{ actualite.Alt }}</td>
-                <td>
-                    <a href="{{ path('actualite_show', {'id': actualite.id}) }}">show</a>
-                    <a href="{{ path('actualite_edit', {'id': actualite.id}) }}">edit</a>
-                </td>
-            </tr>
+        <tr>
+            <td>{{ actualite.id }}</td>
+            <td>{{ actualite.Titre }}</td>
+            <td>{{ actualite.UrlImage }}</td>
+            <td>{{ actualite.Accroche [:20]}}</td>
+            <td>{{ actualite.Texte [:20]}}</td>
+            <td>{{ actualite.Alt }}</td>
+            <td>
+                <a class="btn btn-primary btn-sm" href="{{ path('actualite_show', {'id': actualite.id}) }}">Voir</a>
+                <a class="btn btn-secondary btn-sm" href="{{ path('actualite_edit', {'id': actualite.id}) }}">Editer</a>
+            </td>
+        </tr>
         {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
+        <tr>
+            <td colspan="6">no records found</td>
+        </tr>
         {% endfor %}
-        </tbody>
-    </table>
+    </tbody>
+</table>
 
-    <a href="{{ path('actualite_new') }}">Create new</a>
+<a class="btn btn-primary " href="{{ path('actualite_new') }}">Créer une nouvelle actualité</a>
 {% endblock %}

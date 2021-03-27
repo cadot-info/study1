@@ -22,6 +22,7 @@ class ActualiteController extends AbstractController
     {
         return $this->render('actualite/index.html.twig', [
             'actualites' => $actualiteRepository->findAll(),
+            'menu' => 'actualite'
         ]);
     }
 
@@ -45,6 +46,7 @@ class ActualiteController extends AbstractController
         return $this->render('actualite/new.html.twig', [
             'actualite' => $actualite,
             'form' => $form->createView(),
+            'menu' => 'actualite'
         ]);
     }
 
@@ -54,7 +56,7 @@ class ActualiteController extends AbstractController
     public function show(Actualite $actualite): Response
     {
         return $this->render('actualite/show.html.twig', [
-            'actualite' => $actualite,
+            'actualite' => $actualite, 'menu' => 'actualite'
         ]);
     }
 
@@ -74,7 +76,7 @@ class ActualiteController extends AbstractController
 
         return $this->render('actualite/edit.html.twig', [
             'actualite' => $actualite,
-            'form' => $form->createView(),
+            'form' => $form->createView(), 'menu' => 'actualite'
         ]);
     }
 

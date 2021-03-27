@@ -1,20 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}Administration{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/app/src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/app/templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
-    </ul>
+{% block menu %}
+<div class="col-12">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Administration</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item {% if menu=='admin' %}active{% endif %}">
+                    <a class="nav-link" href="{{path('admin')}}">Accueil</a>
+                </li>
+                <li class="nav-item {% if menu=='actualite' %}active{% endif %}">
+                    <a class="nav-link" href="{{path('actualite_index')}}">Actualités</a>
+                </li>
+                <li class="nav-item {% if menu=='avancee' %}active{% endif %}">
+                    <a class="nav-link" href="{{path('avancee_index')}}">Avancées</a>
+                </li>
+                <li class="nav-item {% if menu=='vaccin' %}active{% endif %}">
+                    <a class="nav-link" href="{{path('vaccin_index')}}">Vaccin</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="{{path('app_logout')}}" class="btn btn-outline-success my-2 my-sm-0"
+                    type="submit">Déconnexion</a>
+            </form>
+        </div>
+    </nav>
 </div>
+{% endblock %}
+{% block body %}
+<h1 class="mt-5">
+    Bienvenue dans l'administration du site "Tous anti-Covid"
+</h1>
 {% endblock %}

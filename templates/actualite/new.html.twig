@@ -1,11 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/index.html.twig' %}
 
 {% block title %}New Actualite{% endblock %}
 
 {% block body %}
-    <h1>Create new Actualite</h1>
+<div class="row">
+    <div class="col-12">
+        <h1>Create new Actualite</h1>
 
-    {{ include('actualite/_form.html.twig') }}
+        {{ include('actualite/_form.html.twig') }}
 
-    <a href="{{ path('actualite_index') }}">back to list</a>
+        <a class="btn btn-secondary" href="{{ path('actualite_index') }}">back to list</a>
+    </div>
+</div>
 {% endblock %}

@@ -17,6 +17,7 @@ class ActualiteType extends AbstractType
             ->add('Titre')
             ->add('UrlImage')
             ->add('Alt')
+            ->add('Accroche', CKEditorType::class)
             ->add('Texte', CKEditorType::class);
     }
 
@@ -24,6 +25,7 @@ class ActualiteType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Actualite::class,
+            'menu' => 'actualite'
         ]);
     }
 }

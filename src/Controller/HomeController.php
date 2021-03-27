@@ -3,12 +3,12 @@
 namespace App\Controller;
 
 use DateTime;
-use Symfony\Component\Yaml\Yaml;
 use Symfony\UX\Chartjs\Model\Chart;
 use App\Repository\ActualiteRepository;
+use App\Repository\AvanceeRepository;
+use App\Repository\VaccinRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -19,7 +19,7 @@ class HomeController extends AbstractController
      */
     public function index(ActualiteRepository $actualiteRepository, ChartBuilderInterface $chartBuilder): Response
     {
-
+        //traitement des statistiques des cas de covid dans le monde
         foreach (get_stats() as $key => $item) {
             $jour[] = explode('T', $item->Date)[0];
             $data[] = $item->TotalDeaths;
@@ -37,9 +37,32 @@ class HomeController extends AbstractController
             ],
         ]);
 
+
+
         return $this->render('home/index.html.twig', [
             'actus' => $actualiteRepository->findAll(),
-            'chart' => $chart
+            'chart' => $chart,
+            'menu' => 'index'
+        ]);
+    }
+    /**
+     * @Route("/vaccins", name="vaccins")
+     */
+    public function vaccin(VaccinRepository $vaccinRepository): Response
+    {
+        return $this->render('home/vaccin.html.twig', [
+            'vaccins' => $vaccinRepository->findAll(),
+            'menu' => 'vaccin'
+        ]);
+    }
+    /**
+     * @Route("/avancees", name="avancees")
+     */
+    public function avancee(AvanceeRepository $avanceeRepository): Response
+    {
+        return $this->render('home/avancee.html.twig', [
+            'avancees' => $avanceeRepository->findAll(),
+            'menu' => 'vaccin'
         ]);
     }
 }
@@ -49,5 +72,6 @@ function get_stats()
     $date = $datephp->format('Y-m-d');  //2020-03-28
     $date_start = date('Y-m-d', strtotime($date . ' - 10 days'));
     $url = 'https://api.covid19api.com/world?from=' . $date_start . 'T00:00:00Z&to=' . $date . 'T00:00:00Z';
-    return (json_decode(file_get_contents($url)));
+    $texte = file_get_contents($url);
+    return (json_decode($texte));
 }

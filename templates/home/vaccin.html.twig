@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <h2>La vérité sur la vaccination</h2>
+        </div>
+        <div class="col-12">
+            {% for vaccin in vaccins |slice(0, 4)%}
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{vaccin.titre}}</h4>
+                        <p class="card-text ">{{vaccin.texte|raw}}</p>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

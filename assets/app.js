@@ -22,9 +22,21 @@ require('animate.css')
 
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover();
+
 });
 $("#solidaire_alert").toggle(2000)
 
 $("#solidaire_alert").delay(3000).slideUp(2000, function () {
     $(this).alert('close');
 });
+$('.carousel').each(function () {
+    var items = $('.carousel-item', this);
+    // reset the height
+    items.css('min-height', 0);
+    // set the height
+    var maxHeight = Math.max.apply(null,
+        items.map(function () {
+            return $(this).outerHeight()
+        }).get());
+    items.css('min-height', maxHeight + 'px');
+})

@@ -1,0 +1,15 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Nouvelle avancée{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12">
+        <h1>Créer une nouvelle avancée</h1>
+
+        {{ include('avancee/_form.html.twig') }}
+
+        <a class="btn btn-secondary" href="{{ path('avancee_index') }}">Revenir à la liste</a>
+    </div>
+</div>
+{% endblock %}

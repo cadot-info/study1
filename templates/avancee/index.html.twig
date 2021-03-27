@@ -1,0 +1,37 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Avancee index{% endblock %}
+
+{% block body %}
+<h1>Avancee index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Texte</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for avancee in avancees %}
+        <tr>
+            <td>{{ avancee.id }}</td>
+            <td>{{ avancee.Titre }}</td>
+            <td>{{ avancee.Texte[:20] }}</td>
+            <td>
+                <a class="btn btn-primary btn-sm" href="{{ path('avancee_show', {'id': avancee.id}) }}">Voir</a>
+                <a class="btn btn-secondary btn-sm" href="{{ path('avancee_edit', {'id': avancee.id}) }}">Editer</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4">no records found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a class="btn btn-primary " href="{{ path('avancee_new') }}">Créer une nouvelle avancée</a>
+{% endblock %}

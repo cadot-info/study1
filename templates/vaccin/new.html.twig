@@ -1,0 +1,16 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Nouvelle actualité sur le Vaccin{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12">
+        <h1>Créer une nouvelle actualité</h1>
+
+        {{ include('vaccin/_form.html.twig') }}
+
+        <a class="btn btn-secondary" href="{{ path('vaccin_index') }}">Revenir à la liste</a>
+    </div>
+</div>
+
+{% endblock %}

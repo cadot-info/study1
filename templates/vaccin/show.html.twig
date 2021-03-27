@@ -1,0 +1,31 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Vaccin{% endblock %}
+
+{% block body %}
+<h1>Vaccin</h1>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ vaccin.id }}</td>
+        </tr>
+        <tr>
+            <th>Titre</th>
+            <td>{{ vaccin.Titre }}</td>
+        </tr>
+        <tr>
+            <th>Texte</th>
+            <td>{{ vaccin.Texte|raw }}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="row">
+    <a class="btn  btn-primary mr-2" href="{{ path('vaccin_index') }}">Revenir à la liste</>
+
+        <a class="btn  btn-secondary mr-2" href="{{ path('vaccin_edit', {'id': vaccin.id}) }}">Editer</a>
+
+        {{ include('vaccin/_delete_form.html.twig') }}
+</div>
+{% endblock %}

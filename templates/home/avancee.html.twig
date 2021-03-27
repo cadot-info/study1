@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <h2>Les avancées de la campagne de vaccination</h2>
+        </div>
+        <div class="col-12">
+
+            <div class="container">
+                <div id="carouselContent" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        {% for avancee in avancees %}
+
+                        <div class="carousel-item {% if loop.first %} active{% endif %}  p-4">
+                            <div class="row mb-3 ">
+                                <div class="col-12 text-right alert alert-info">
+                                    <h3>{{avancee.Titre}}</h3>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center ">
+                                <div class="col-10">{{avancee.texte|raw}}</div>
+                            </div>
+
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Retour</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselContent" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Suivant</span>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

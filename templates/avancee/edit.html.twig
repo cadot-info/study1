@@ -1,0 +1,17 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Editer les actualités sur le Avancee{% endblock %}
+
+{% block body %}
+<h1>Edite l'avancée</h1>
+<div class="row">
+    <div class="col-12">
+        {{ include('avancee/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+        <a class="btn btn-primary" href="{{ path('avancee_index') }}">Revenir à la liste</a>
+
+        {{ include('avancee/_delete_form.html.twig') }}
+    </div>
+</div>
+
+{% endblock %}

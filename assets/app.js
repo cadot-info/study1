@@ -9,7 +9,7 @@
 import './styles/app.scss';
 
 // start the Stimulus application
-//import './bootstrap';
+import './bootstrap';
 const $ = require("jquery");
 global.$ = global.jQuery = $;
 import "bootstrap";
@@ -22,4 +22,9 @@ require('animate.css')
 
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover();
+});
+$("#solidaire_alert").toggle(2000)
+
+$("#solidaire_alert").delay(3000).slideUp(2000, function () {
+    $(this).alert('close');
 });

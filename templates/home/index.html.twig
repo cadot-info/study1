@@ -1,23 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container">
-    <div class="row justify-content-around mb-5">
-
-        <div class="alert alert-warning mt-5" role="alert">
-            <strong>Je me mobilise contre la Covid 19, je suis solidaire, <a class="btn btn-warning" href=""
-                    role="button">je participe</a></strong>
+<div class="modal mt-5" tabindex="-1" id="solidaire_alert">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tous solidaire</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <strong>Je me mobilise contre la Covid 19, je suis solidaire, <a class="btn btn-warning" href=""
+                        role="button">je
+                        participe</a></strong>
+            </div>
 
         </div>
-        <div class="col-12">
-            <h2>Tous solidaires</h2>
-            <blockquote class="p-2">
-                <p class="paraph"><span>C</span>'est dans ces moments difficiles, ou nous sommes en guerre contre
-                    cet ennemi invisible que nous pouvons relever la tête et lutter tous ensemble contre cet ennemie
-                    commun.
-                    <i class="float-right mt-3">Macron 1 mai 2019</i>
-                </p>
-            </blockquote>
+    </div>
+</div>
+<div class="container">
+
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <h2>Statistique actualisés tous les jours des cas de Covid dans le monde</h2>
+            {{ render_chart(chart) }}
+            <h3 class="text-right">Source: https://covidtracking.com/</h3>
         </div>
     </div>
     <div class="row">
@@ -26,7 +35,8 @@
         </div>
         {% for actu in actus |slice(0, 3)%}
         <div class="col-12 col-lg-4  d-flex align-items-stretch ">
-            <div class="card  px-0 overflow-auto ">
+            <div class="card  px-0 overflow-auto animate__animated animate__fadeIn animate__slow mb-2"
+                style="animation-delay: {{loop.index/2}}s;">
                 <img class="card-img-top" alt="{{actu.alt}}" src="{{actu.UrlImage}}" alt="">
                 <div class="card-header text-right">
                     {{actu.CreatedAt|date("F jS à H:i")}}
@@ -34,14 +44,17 @@
                 <div class="card-body">
                     <h5 class="card-title">{{actu.titre|raw}}</h5>
                     <p class="card-text">{{actu.accroche|raw}}
-                        <span><a data-toggle="collapse" href="#texte_{{actu.id}}" role="button" aria-expanded="false"
+                        <span
+                            class="float-right animate__animated animate__bounceInLeft animate__delay-2s animate__slow"
+                            style="animation-delay: {{loop.index/2}}s;"><a data-toggle="collapse"
+                                href="#texte_{{actu.id}}" role="button" aria-expanded="false"
                                 aria-controls="collapseExample">
                                 En savoir plus ...
                             </a></span>
                     </p>
                     <div class="collapse" id="texte_{{actu.id}}">
                         <p class="card-text">{{actu.texte|raw}}
-                            <span><a data-toggle="collapse" href="#texte_{{actu.id}}" role="button"
+                            <span class="float-right"><a data-toggle="collapse" href="#texte_{{actu.id}}" role="button"
                                     aria-expanded="false" aria-controls="collapseExample">
                                     Refermer
                                 </a></span>
@@ -53,22 +66,9 @@
         </div>
         {% endfor %}
     </div>
-    <div class="row">
-        <div class="col-12 col-md-6 ">
-            <img src="https://picsum.photos/id/633/600/400" class="img-fluid" alt="vu de central park">
-            <div class="bandeau">Espérance de vie</div>
-        </div>
-        <div class="col-12">
-            <p>
-                L’âge de la personne est le facteur de risque de développer une forme grave de Covid-19 le plus
-                important,
-                la Haute autorité de santé a donc recommandé de prioriser les populations cibles vaccinales en
-                fonction
-                de
-                différentes classes d’âge et selon les facteurs d’exposition au virus (ex : vie en collectivité,
-                professionnels du secteur de la santé…).</p>
-        </div>
-    </div>
+
+
+
 
 </div>
 

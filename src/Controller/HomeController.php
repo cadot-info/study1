@@ -2,21 +2,52 @@
 
 namespace App\Controller;
 
+use DateTime;
+use Symfony\Component\Yaml\Yaml;
+use Symfony\UX\Chartjs\Model\Chart;
 use App\Repository\ActualiteRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Yaml\Exception\ParseException;
+use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="home")
      */
-    public function index(ActualiteRepository $actualiteRepository): Response
+    public function index(ActualiteRepository $actualiteRepository, ChartBuilderInterface $chartBuilder): Response
     {
+
+        foreach (get_stats() as $key => $item) {
+            $jour[] = explode('T', $item->Date)[0];
+            $data[] = $item->TotalDeaths;
+        }
+        $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
+        $chart->setData([
+            'labels' => $jour,
+            'datasets' => [
+                [
+                    'label' => 'Nombre de cas Covid-19 dans le monde',
+                    'backgroundColor' => 'rgb(255, 99, 132)',
+                    'borderColor' => 'rgb(255, 99, 132)',
+                    'data' => $data,
+                ],
+            ],
+        ]);
+
         return $this->render('home/index.html.twig', [
-            'actus' => $actualiteRepository->findAll()
+            'actus' => $actualiteRepository->findAll(),
+            'chart' => $chart
         ]);
     }
 }
-//https://www.data.gouv.fr/fr/datasets/r/219427ba-7e90-4eb1-9ac7-4de2e7e2112c
+function get_stats()
+{
+    $datephp = new DateTime('now');
+    $date = $datephp->format('Y-m-d');  //2020-03-28
+    $date_start = date('Y-m-d', strtotime($date . ' - 10 days'));
+    $url = 'https://api.covid19api.com/world?from=' . $date_start . 'T00:00:00Z&to=' . $date . 'T00:00:00Z';
+    return (json_decode(file_get_contents($url)));
+}

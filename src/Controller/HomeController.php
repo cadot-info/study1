@@ -62,7 +62,7 @@ class HomeController extends AbstractController
     {
         return $this->render('home/avancee.html.twig', [
             'avancees' => $avanceeRepository->findAll(),
-            'menu' => 'vaccin'
+            'menu' => 'avancee'
         ]);
     }
 }

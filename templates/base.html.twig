@@ -29,9 +29,63 @@
 <body>
     <div class="container">
         <div class="row">
-            {% block menu %}{% endblock %}
+            {% block menu %}
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/"><img class="img-fluid" src="{{asset('build/logo_mobile.png')}}"
+                            style=" height:3rem;">
+                    </a>
+                    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{path('home')}}">Actualités</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{path('avancees')}}">Avancées</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{path('vaccins')}}">Vaccination</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                    <a class="dropdown-item" href="#">Action 1</a>
+                                    <a class="dropdown-item" href="#">Action 2</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <span class="form-control mr-sm-2">Arnaud Stéphane</span>
+                            <a href="{{path('app_logout')}}" class="btn btn-outline-success my-2 my-sm-0"
+                                type="submit">Déconnexion</a>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+            {% endblock %}
             {% block body %}{% endblock %}
+            {% block footer %}
         </div>
+    </div>
+    <div class="row bg-primary p-3 mt-5">
+        <div class="col-3 ">
+            <img class="img-fluid" src="{{asset('build/logo_mobile.png')}}" style=" height:3rem;">
+        </div>
+        <div class="col-9 ">
+            <dh>
+                <dt>Adresse:13 rue de l'lysée, 75000 Paris</dt>
+                <dt><a style="color: #444;" href="mailto:toto@gouvernement.fr">Ecrire au ministère de la santé</a></dt>
+            </dh>
+        </div>
+
+    </div>
+    {% endblock %}
     </div>
 </body>
 

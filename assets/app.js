@@ -29,6 +29,7 @@ $("#solidaire_alert").toggle(2000)
 $("#solidaire_alert").delay(3000).slideUp(2000, function () {
     $(this).alert('close');
 });
+//fonction pour mettre les items du carrousel à la même hauteur
 $('.carousel').each(function () {
     var items = $('.carousel-item', this);
     // reset the height

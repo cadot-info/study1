@@ -25,6 +25,8 @@
     },
     "dependencies": {
         "animate.css": "^4.1.1",
-        "bootswatch": "^4.6.0"
+        "bootswatch": "^4.6.0",
+        "popover": "^2.4.1",
+        "popover.js": "^0.2.40"
     }
 }

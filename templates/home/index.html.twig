@@ -22,20 +22,33 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <h2>dernières actualités</h2>
+            <h2>Dernières actualités</h2>
         </div>
         {% for actu in actus |slice(0, 3)%}
-        <div class="col-4">
-            <div class="card  px-0">
+        <div class="col-12 col-lg-4  d-flex align-items-stretch ">
+            <div class="card  px-0 overflow-auto ">
                 <img class="card-img-top" alt="{{actu.alt}}" src="{{actu.UrlImage}}" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">{{actu.titre|raw}}</h5>
-                    <p class="card-text">{{actu.texte|raw}}</p>
-
-                </div>
-                <div class="card-footer">
+                <div class="card-header text-right">
                     {{actu.CreatedAt|date("F jS à H:i")}}
                 </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{actu.titre|raw}}</h5>
+                    <p class="card-text">{{actu.accroche|raw}}
+                        <span><a data-toggle="collapse" href="#texte_{{actu.id}}" role="button" aria-expanded="false"
+                                aria-controls="collapseExample">
+                                En savoir plus ...
+                            </a></span>
+                    </p>
+                    <div class="collapse" id="texte_{{actu.id}}">
+                        <p class="card-text">{{actu.texte|raw}}
+                            <span><a data-toggle="collapse" href="#texte_{{actu.id}}" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    Refermer
+                                </a></span>
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
         {% endfor %}

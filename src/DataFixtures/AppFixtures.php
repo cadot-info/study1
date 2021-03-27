@@ -35,11 +35,11 @@ class AppFixtures extends Fixture
 
         $actualite = new Actualite();
         $actualite->setTitre('Ouverture de 38 vaccinodromes gérés par les sapeurs-pompiers');
-        $actualite->setTexte('<div class="field-item even first last">Afin d’accompagner la montée en puissance de la campagne de vaccination, <strong>38 vaccinodromes gérés par les sapeurs-pompiers vont être ouverts dans les prochains jours</strong>, a annoncé le ministre de l\'Intérieur Gérald Darmanin.<br>
+        $actualite->setAccroche('Afin d\’accompagner la montée en puissance de la campagne de vaccination, <strong>38 vaccinodromes gérés par les sapeurs-pompiers vont être ouverts dans les prochains jours</strong>, a annoncé le ministre de l\'Intérieur Gérald Darmanin.<br>
 <br>
 Depuis le début de <a href="https://www.gouvernement.fr/info-coronavirus" target="_blank" title="Lien vers notre dossier sur la Covid-19 (nouvelle fenêtre)" data-smarttag-click="{&quot;name&quot;: &quot;https//www.gouvernement.fr/info-coronavirus&quot;, &quot;type&quot;: &quot;navigation&quot;,&quot;chapter1&quot;:&quot;ouverture_de_38_vaccinodromes_geres_par_les_sapeurs_pompiers&quot;}" class="atClass">la crise sanitaire</a>, les sapeurs-pompiers et l\'ensemble des acteurs de la Sécurité civile sont pleinement mobilisés aux côtés du personnel soignant.<br>
-<br>
-Dans le prolongement des missions qu’ils réalisent au quotidien, ils prendront toute leur part au déploiement de <a href="https://www.gouvernement.fr/les-personnes-eligibles-a-la-vaccination-contre-la-covid-19" target="_blank" title="Lien vers la page vaccin (nouvelle fenêtre)" data-smarttag-click="{&quot;name&quot;: &quot;https//www.gouvernement.fr/les-personnes-eligibles-a-la-vaccination-contre-la-covid-19&quot;, &quot;type&quot;: &quot;navigation&quot;,&quot;chapter1&quot;:&quot;ouverture_de_38_vaccinodromes_geres_par_les_sapeurs_pompiers&quot;}" class="atClass">la campagne de vaccination</a>.
+');
+        $actualite->setTexte('Dans le prolongement des missions qu’ils réalisent au quotidien, ils prendront toute leur part au déploiement de <a href="https://www.gouvernement.fr/les-personnes-eligibles-a-la-vaccination-contre-la-covid-19" target="_blank" title="Lien vers la page vaccin (nouvelle fenêtre)" data-smarttag-click="{&quot;name&quot;: &quot;https//www.gouvernement.fr/les-personnes-eligibles-a-la-vaccination-contre-la-covid-19&quot;, &quot;type&quot;: &quot;navigation&quot;,&quot;chapter1&quot;:&quot;ouverture_de_38_vaccinodromes_geres_par_les_sapeurs_pompiers&quot;}" class="atClass">la campagne de vaccination</a>.
 <h2>Ouverts 7j/7</h2>
 Ainsi, dans les tous prochains jours, 38 vaccinodromes seront mis en place sur l’ensemble du territoire. <strong>Ouverts 7j/7</strong>, ces centres de grande capacité seront armés par les sapeurs-pompiers avec notamment le concours des associations agréées de sécurité civile.<br>
 <br>
@@ -47,15 +47,8 @@ Plus de <strong>140 centres de vaccination modulaires et mobiles complèteront l
 <br>
 25 000 sapeurs-pompiers formés à la vaccination et 2 500 sapeurs-pompiers en charge de la logistique assureront l’administration et la gestion de ces vaccinodromes dans lesquels jusqu’à 530 000 vaccinations pourront être faites chaque semaine, soit une moyenne de 2 000 chaque jour par vaccinodrome. Cette capacité tiendra compte et s’adaptera aux volumes de vaccins disponibles.<br>
 <br>
-Les préfets de département pilotent sur leurs territoires ces dispositifs avec l’ensemble des partenaires engagés dans la campagne de vaccination. Les modalités de fonctionnement de ces structures seront définies par les préfets en fonction des besoins identifiés de chaque département.
-<div class="rf-link-advanced external">
-<h4 class="rf-link-advanced__title">Le point sur les vaccins</h4>
+Les préfets de département pilotent sur leurs territoires ces dispositifs avec l’ensemble des partenaires engagés dans la campagne de vaccination. Les modalités de fonctionnement de ces structures seront définies par les préfets en fonction des besoins identifiés de chaque département.');
 
-<div class="rf-link-advanced__link">
-<div class="rf-link-advanced__link--title">gouvernement.fr</div>
-<a class="rf-link-advanced__link--href atClass" href="https://www.gouvernement.fr/info-coronavirus/vaccins" target="_blank" data-smarttag-click="{&quot;name&quot;: &quot;https//www.gouvernement.fr/info-coronavirus/vaccins&quot;, &quot;type&quot;: &quot;navigation&quot;,&quot;chapter1&quot;:&quot;ouverture_de_38_vaccinodromes_geres_par_les_sapeurs_pompiers&quot;}"><span class="hidden">Le point sur les vaccins</span></a></div>
-</div>
-</div>');
         $actualite->setUrlImage('https://www.gouvernement.fr/sites/default/files/styles/rf-ministre/public/contenu/image/2021/03/pompiers2_0.png?itok=L1DrxuTo');
         $actualite->setAlt('caserne de pompiers');
         $manager->persist($actualite);
@@ -63,7 +56,7 @@ Les préfets de département pilotent sur leurs territoires ces dispositifs avec
 
         $actualite = new Actualite();
         $actualite->setTitre('Covid-19 : « Dedans avec les miens, dehors en citoyen »');
-        $actualite->setTexte('<h2>Dedans avec les miens</h2>
+        $actualite->setAccroche('<h2>Dedans avec les miens</h2>
 
 <ul>
 	<li style="text-align:justify">Je respecte scrupuleusement les mesures sanitaires ;</li>
@@ -72,8 +65,8 @@ Les préfets de département pilotent sur leurs territoires ces dispositifs avec
 	<li style="text-align:justify">Je ne reçois pas de personnes extérieures à mon foyer à l’exception des aides à domicile et service à la personne ;</li>
 	<li style="text-align:justify">Je reste chez moi après 19h.</li>
 </ul>
-
-
+');
+        $actualite->setTexte('
 <h2><b>Dehors</b><b> en citoyen</b></h2>
 
 <ul>
@@ -95,8 +88,8 @@ Les préfets de département pilotent sur leurs territoires ces dispositifs avec
 	<li style="text-align:justify">Je déjeune seul ou avec des personnes de mon foyer ;</li>
 	<li style="text-align:justify">Je ne me déplace pas en dehors de ma région ou de mon département sauf motif impérieux ou professionnel, justifié par une attestation.</li>
 </ul>
-
 ');
+
         $actualite->setUrlImage('https://www.gouvernement.fr/sites/default/files/styles/rf-ministre/public/contenu/image/2021/03/pictos_anti-covid_copie.jpg?itok=Qcg4JU_o');
         $actualite->setAlt('plaquette d\information');
         $manager->persist($actualite);
@@ -104,17 +97,18 @@ Les préfets de département pilotent sur leurs territoires ces dispositifs avec
 
         $actualite = new Actualite();
         $actualite->setTitre('Les conseils d’un psychologue aux jeunes fragilisés par la Covid-19');
-        $actualite->setTexte('<h2>Comment savoir si j’ai besoin d’aide ?</h2>
+        $actualite->setAccroche('<h2>Comment savoir si j’ai besoin d’aide ?</h2>
 
 <p>« Il faut commencer à se poser des questions pour savoir si on a besoin d’aide <strong>à partir du moment où l’on n’arrive plus à accomplir les mêmes tâches que d’habitude</strong>. Si nos émotions commencent à trop prendre le pas. Tout ce qui va nous empêcher de vivre comme on a l’habitude de vivre, d’atteindre les objectifs que nous nous sommes fixés, en général, cela peut être un bon signe.</p>
 
-<p>L’autre chose est de se poser la question : <strong>suis-je en train de me renfermer sur moi-même ou pas ?</strong> Pour le savoir, il est très important de discuter avec ses proches, car ils savent si on a changé quelque chose dans notre fonctionnement.&nbsp;»<br>
+');
+        $actualite->setTexte('
+        <p>L’autre chose est de se poser la question : <strong>suis-je en train de me renfermer sur moi-même ou pas ?</strong> Pour le savoir, il est très important de discuter avec ses proches, car ils savent si on a changé quelque chose dans notre fonctionnement.&nbsp;»<br>
 <br>
 <u>Le psychologue Jérémie Gallen répond, en vidéo, à vos questions sur la santé mentale en période de crise Covid-19 :</u><br>
 <br>
 </p>
 <h2>Quels sont les signes avant-coureurs qui doivent m’alerter ?</h2>
-
 <p>« Les signes que l’on peut repérer sont :</p>
 
 <ul>

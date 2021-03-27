@@ -43,6 +43,11 @@ class Actualite
      */
     private $Alt;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $accroche;
+
 
 
     public function getId(): ?int
@@ -94,6 +99,18 @@ class Actualite
     public function setAlt(string $Alt): self
     {
         $this->Alt = $Alt;
+
+        return $this;
+    }
+
+    public function getAccroche(): ?string
+    {
+        return $this->accroche;
+    }
+
+    public function setAccroche(?string $accroche): self
+    {
+        $this->accroche = $accroche;
 
         return $this;
     }

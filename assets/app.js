@@ -10,11 +10,16 @@ import './styles/app.scss';
 
 // start the Stimulus application
 //import './bootstrap';
-const $ = require('jquery');
+const $ = require("jquery");
+global.$ = global.jQuery = $;
+import "bootstrap";
 
+
+
+
+require('@fortawesome/fontawesome-free/css/all.min.css');
+require('animate.css')
 
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover();
 });
-require('@fortawesome/fontawesome-free/css/all.min.css');
-require('animate.css')

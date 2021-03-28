@@ -43,9 +43,6 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         {% set route=path(app.request.attributes.get('_route'),
                         app.request.attributes.get('_route_params')) %}
-                        <pre>
-                            {{ dump(route) }}
-                        </pre>
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link{% if route=='/'%} active {% endif %}"
@@ -68,11 +65,22 @@
                                     href="{{path('centre')}}">Trouver un centre</a>
                             </li>
                         </ul>
+
+                        {% if app.user %}
                         <form class="form-inline my-2 my-lg-0">
-                            <span class="form-control mr-sm-2">Arnaud Stéphane</span>
+                            <span class="form-control mr-sm-2">{{app.user.nomprenom}}</span>
                             <a href="{{path('app_logout')}}" class="btn btn-outline-success my-2 my-sm-0"
-                                type="submit">Déconnexion</a>
+                                type="button">Déconnexion</a>
                         </form>
+
+                        {% else %}
+                        <form class="form-inline my-2 my-lg-0">
+                            <a href="{{path('app_login')}}" class="btn btn-outline-success my-2 my-sm-0"
+                                type="button">Connexion</a>
+                        </form>
+
+
+                        {% endif %}
                     </div>
                 </nav>
             </div>

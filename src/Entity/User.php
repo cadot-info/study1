@@ -34,6 +34,11 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nomprenom;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -108,5 +113,17 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getNomprenom(): ?string
+    {
+        return $this->nomprenom;
+    }
+
+    public function setNomprenom(?string $nomprenom): self
+    {
+        $this->nomprenom = $nomprenom;
+
+        return $this;
     }
 }

@@ -1,92 +1,24 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
 {{ parent() }}
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 {% endblock %}
 
 
 {% block javascripts %}
 {{ parent() }}
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script>
-    let mymap // Variable qui permettra de stocker la carte
 
-    // On attend que le DOM soit chargé
-    window.onload = () => {
-        // Nous initialisons la carte et nous la centrons sur Paris
-        mymap = L.map('detailsMap').setView([46.852969, 2.349903], 6)
-        L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
-            attribution: 'Carte fournie par Wikimedia',
-            minZoom: 1,
-            maxZoom: 20
-        }).addTo(mymap)
-
-        var data = $('#data').val();
-
-        json = JSON.parse($('#data').val(), (key, value) => {
-            return value;
-
-        });
-        json.forEach(element => {
-            var circle = L.circle([element.lat, element.lon], {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.5,
-                radius: 500
-            }).addTo(mymap).addTo(mymap).bindPopup("Centre " + element.rs + ": " + element.adresse);;
-        }
-        );
-
-
-        var popup = L.popup();
-
-
-        mymap.on('click', onMapClick);
-
-    }
-    function cp_click() {
-        $.getJSON("https://api-adresse.data.gouv.fr/search/?q=" + $('#cp').val() + "&limit=15", function (data) {
-            lat = data.features[0].geometry.coordinates[1]
-            lon = data.features[0].geometry.coordinates[0]
-            mymap.setView([lat, lon], 10)
-            var LeafIcon = L.Icon.extend({
-                options: {
-                    iconSize: [50, 39],
-                    iconAnchor: [22, 94],
-                    popupAnchor: [-3, -76]
-                }
-            });
-            var greenIcon = new LeafIcon({
-                iconUrl: $('#ico').val()
-
-            })
-            L.marker([lat, lon], { icon: greenIcon }).addTo(mymap);
-        });
-    }
-</script>
 {% endblock %}
 {% block body %}
-<input type="hidden" id="data" value="{{centres}}">
-<input type="hidden" id="ico" value="{{asset('build/maison.png')}}">
 <div class="container">
-
-
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-12">
-            <h2>Localisation du centre le plus proche</h2>
-            <div class="form-inline">
-                <label for="">Merci d'entrer votre code postal</label>
-                <input type="text" class="form-control" name="" id="cp" aria-describedby="helpId" placeholder="17000">
-                <a name="" id="" class="btn btn-primary" onclick="cp_click()" role="button">Envoyer</a>
-            </div>
+            <h2>Je souhaite sauver des
+                vies</h2>
         </div>
-        <div class="col-12 col-lg-10">
-            <h2>Les centres de vaccination</h2>
+        <div class="col-10">
+            <h4>Formulaire d'inscription</h4>
         </div>
-        <div class="col-12 mt-3">
-            <div id="detailsMap" style="width: 100%; height: 100%;min-width:400px;min-height:700px;"></div>
 
-        </div>
     </div>
 </div>
 

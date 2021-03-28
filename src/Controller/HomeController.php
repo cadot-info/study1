@@ -42,7 +42,6 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'actus' => $actualiteRepository->findAll(),
             'chart' => $chart,
-            'menu' => 'index'
         ]);
     }
     /**
@@ -52,7 +51,6 @@ class HomeController extends AbstractController
     {
         return $this->render('home/vaccin.html.twig', [
             'vaccins' => $vaccinRepository->findAll(),
-            'menu' => 'vaccin'
         ]);
     }
     /**
@@ -62,7 +60,6 @@ class HomeController extends AbstractController
     {
         return $this->render('home/avancee.html.twig', [
             'avancees' => $avanceeRepository->findAll(),
-            'menu' => 'avancee'
         ]);
     }
     /**
@@ -70,10 +67,7 @@ class HomeController extends AbstractController
      */
     public function solidaire(AvanceeRepository $avanceeRepository): Response
     {
-        return $this->render('home/avancee.html.twig', [
-            'avancees' => $avanceeRepository->findAll(),
-            'menu' => 'avancee'
-        ]);
+        return $this->render('home/solidaire.html.twig', []);
     }
     /**
      * @Route("/centre", name="centre")
@@ -82,7 +76,6 @@ class HomeController extends AbstractController
     {
         return $this->render('home/centre.html.twig', [
             'centres' => json_encode(centre()),
-            'menu' => 'avancee'
         ]);
     }
 }

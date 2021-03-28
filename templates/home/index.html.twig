@@ -12,8 +12,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <strong>Je me mobilise contre la Covid 19, je suis solidaire, <a class="btn btn-warning" href=""
-                        role="button">je
+                <strong>Je me mobilise contre la Covid 19, je suis solidaire, <a class="btn btn-warning"
+                        href="{{path('solidaire')}}" role="button">je
                         participe</a></strong>
             </div>
 
@@ -28,6 +28,7 @@
             <h2>Statistique actualisés tous les jours des cas de Covid dans le monde</h2>
             {{ render_chart(chart) }}
             <h3 class="text-right">Source: https://covidtracking.com/</h3>
+            <h5 class="text-right">Mise à jour des données sur 5 jours maximum</h5>
         </div>
     </div>
     <div class="row">

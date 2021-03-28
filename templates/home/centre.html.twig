@@ -15,8 +15,8 @@
     window.onload = () => {
         // Nous initialisons la carte et nous la centrons sur Paris
         mymap = L.map('detailsMap').setView([46.852969, 2.349903], 6)
-        L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
-            attribution: 'Carte fournie par Wikimedia',
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
             minZoom: 1,
             maxZoom: 20
         }).addTo(mymap)
@@ -41,7 +41,7 @@
         var popup = L.popup();
 
 
-        mymap.on('click', onMapClick);
+
 
     }
     function cp_click() {

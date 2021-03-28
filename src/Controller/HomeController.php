@@ -65,6 +65,26 @@ class HomeController extends AbstractController
             'menu' => 'avancee'
         ]);
     }
+    /**
+     * @Route("/solidaire", name="solidaire")
+     */
+    public function solidaire(AvanceeRepository $avanceeRepository): Response
+    {
+        return $this->render('home/avancee.html.twig', [
+            'avancees' => $avanceeRepository->findAll(),
+            'menu' => 'avancee'
+        ]);
+    }
+    /**
+     * @Route("/centre", name="centre")
+     */
+    public function centre(): Response
+    {
+        return $this->render('home/centre.html.twig', [
+            'centres' => json_encode(centre()),
+            'menu' => 'avancee'
+        ]);
+    }
 }
 function get_stats()
 {
@@ -74,4 +94,15 @@ function get_stats()
     $url = 'https://api.covid19api.com/world?from=' . $date_start . 'T00:00:00Z&to=' . $date . 'T00:00:00Z';
     $texte = file_get_contents($url);
     return (json_decode($texte));
+}
+function centre()
+{
+    $url = 'https://www.data.gouv.fr/fr/datasets/r/7c0f7980-1804-4382-a2a8-1b4af2e10d32';
+    $texte = file_get_contents($url);
+    $csv = new \ParseCsv\Csv();
+    $csv->auto($texte);
+    foreach ($csv->data as $key => $value) {
+        $centre[] = ['lat' => $value['latitude'], 'lon' => $value['longitude'], 'rs' => $value['rs'], 'adresse' => $value['adresse']];
+    }
+    return ($centre);
 }

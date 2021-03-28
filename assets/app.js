@@ -41,3 +41,4 @@ $('.carousel').each(function () {
         }).get());
     items.css('min-height', maxHeight + 'px');
 })
+

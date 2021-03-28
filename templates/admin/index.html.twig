@@ -24,6 +24,9 @@
                 <li class="nav-item {% if menu=='vaccin' %}active{% endif %}">
                     <a class="nav-link" href="{{path('vaccin_index')}}">Vaccin</a>
                 </li>
+                <li class="nav-item {% if menu=='inscription' %}active{% endif %}">
+                    <a class="nav-link" href="{{path('inscription_index')}}">Inscriptions</a>
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <a href="{{path('app_logout')}}" class="btn btn-outline-success my-2 my-sm-0"

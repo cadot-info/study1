@@ -3,6 +3,7 @@ twig:
     form_themes: 
         - "bootstrap_4_horizontal_layout.html.twig"
         - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+        - '@ITInputMask/Form/inputMaskFields.html.twig'
     date:
         timezone: Europe/Paris
 fos_ck_editor:

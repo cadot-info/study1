@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01c2db9dfe7441f9f384fc76b83e79dd",
+    "content-hash": "1c6e8e0605cb7a868a9f6be72f14a27a",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1782,6 +1782,50 @@
                 "source": "https://github.com/FriendsOfSymfony/FOSCKEditorBundle/tree/2.3.0"
             },
             "time": "2020-12-26T14:29:00+00:00"
+        },
+        {
+            "name": "it/input-mask-bundle",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/IntuitivTechnology/InputMaskBundle.git",
+                "reference": "e634128e9013d23117cedde9282448770f38e74b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/IntuitivTechnology/InputMaskBundle/zipball/e634128e9013d23117cedde9282448770f38e74b",
+                "reference": "e634128e9013d23117cedde9282448770f38e74b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6",
+                "symfony/framework-bundle": "2.8.*|3.*|4.*|5.*",
+                "twig/twig": "*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "IT\\InputMaskBundle\\": "IT/InputMaskBundle"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pierre Vassoilles",
+                    "email": "pvassoilles@intuitiv.fr",
+                    "homepage": "https://github.com/pierre-vassoilles",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple Symfony bundle that implements Form classes for RobinHerbots/Inputmask jQuery plugin ",
+            "support": {
+                "issues": "https://github.com/IntuitivTechnology/InputMaskBundle/issues",
+                "source": "https://github.com/IntuitivTechnology/InputMaskBundle/tree/master"
+            },
+            "time": "2020-07-16T13:58:50+00:00"
         },
         {
             "name": "laminas/laminas-code",

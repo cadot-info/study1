@@ -26,6 +26,7 @@
     "dependencies": {
         "animate.css": "^4.1.1",
         "bootswatch": "^4.6.0",
+        "inputmask": "^5.0.5",
         "leaflet": "^1.7.1",
         "popover": "^2.4.1",
         "popover.js": "^0.2.40"

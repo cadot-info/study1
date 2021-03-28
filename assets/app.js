@@ -14,7 +14,7 @@ const $ = require("jquery");
 global.$ = global.jQuery = $;
 import "bootstrap";
 
-
+import 'inputmask';
 
 
 require('@fortawesome/fontawesome-free/css/all.min.css');

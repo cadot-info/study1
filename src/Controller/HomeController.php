@@ -3,10 +3,13 @@
 namespace App\Controller;
 
 use DateTime;
+use App\Entity\Inscription;
+use App\Form\InscriptionType;
 use Symfony\UX\Chartjs\Model\Chart;
-use App\Repository\ActualiteRepository;
-use App\Repository\AvanceeRepository;
 use App\Repository\VaccinRepository;
+use App\Repository\AvanceeRepository;
+use App\Repository\ActualiteRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
@@ -62,13 +65,7 @@ class HomeController extends AbstractController
             'avancees' => $avanceeRepository->findAll(),
         ]);
     }
-    /**
-     * @Route("/solidaire", name="solidaire")
-     */
-    public function solidaire(AvanceeRepository $avanceeRepository): Response
-    {
-        return $this->render('home/solidaire.html.twig', []);
-    }
+
     /**
      * @Route("/centre", name="centre")
      */
@@ -76,6 +73,28 @@ class HomeController extends AbstractController
     {
         return $this->render('home/centre.html.twig', [
             'centres' => json_encode(centre()),
+        ]);
+    }
+    /**
+     * @Route("solidaire", name="solidaire", methods={"GET","POST"})
+     */
+    public function new(Request $request): Response
+    {
+        $inscription = new Inscription();
+        $form = $this->createForm(InscriptionType::class, $inscription);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($inscription);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('solidaire');
+        }
+
+        return $this->render('home/solidaire.html.twig', [
+            'inscription' => $inscription,
+            'form' => $form->createView(),
         ]);
     }
 }
